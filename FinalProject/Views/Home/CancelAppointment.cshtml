@@ -1,0 +1,77 @@
+﻿@model IEnumerable<FinalProject.Models.Search>
+@{
+    ViewData["Title"] = "Cancel appointment";
+}
+
+  <link rel="stylesheet" href="~/css/ADOStyle.css" asp-append-version="true" type="text/css" />
+  <style>
+  body  {
+  background-image: url('../images/Screenshot (323).png');
+}
+</style>
+<div>
+    <table class="table">
+        <thead>
+          
+            <tr>
+                <th>
+                    @Html.DisplayName("Appointment ID")
+                </th>
+                <th>
+                    @Html.DisplayName("Patient ID")
+                </th>
+                <th>
+                    @Html.DisplayName("Doctor Name")
+                </th>
+                <th>
+                    @Html.DisplayName("Specialiazation")
+                </th>
+                <th>
+                    @Html.DisplayName("Slot")
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            { 
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppointmentId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatientId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DoctorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Specialization)
+                   
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeSlot)
+                   
+                </td>
+
+                <td  class="text-center">
+            @Html.ActionLink("Cancel", "DeleteAppointment", new { appointmentId=item.AppointmentId,DoctorId = item.DoctorId,TimeSlot = item.TimeSlot}, new { @class = "btn btn-outline-primary" })
+        
+        
+            </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
